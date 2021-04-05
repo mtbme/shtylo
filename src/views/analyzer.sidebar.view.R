@@ -399,6 +399,10 @@ sidebarPanel(
           "analyzer.load",
           class = "btn-sm",
           label = "Load Settings"
+        ),
+        htmlOutput(
+          'analyzer.save.msg',
+          inline = TRUE,
         )
       ),
       wellPanel(

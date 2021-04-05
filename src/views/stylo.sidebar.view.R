@@ -372,6 +372,10 @@ sidebarPanel(
           "stylo.load",
 	  class = "btn-sm",
           label = "Load Settings"
+        ),
+        htmlOutput(
+          'stylo.save.msg',
+          inline = TRUE,
         )
       ),
       wellPanel(

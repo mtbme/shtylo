@@ -739,6 +739,10 @@ wizard.settings.panel <- tabPanel(
           "wizard.load",
           class = "btn-sm",
           label = "Load Settings"
+        ),
+        htmlOutput(
+          'wizard.save.msg',
+          inline = TRUE,
         )
       ),
       wellPanel(
