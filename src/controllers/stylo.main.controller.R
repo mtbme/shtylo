@@ -17,10 +17,10 @@ function (input, output, shiny.session, db.service, log.service, stylo.params.se
   dat <- function(){
     
     progress <- AsyncProgress$new(
-      message = "Stylometry job in progress",
+      message = "Stylometry job in progress:",
       min = 0,
       max = 1,
-      detail = "Loading corpus",
+      detail = "loading corpus",
       style = "notification",
       session = shiny.session
     )
@@ -72,7 +72,7 @@ function (input, output, shiny.session, db.service, log.service, stylo.params.se
         {
           progress$set(
             value = 0.2,
-            detail = "Parsing corpus"
+            detail = "parsing corpus"
           )
           
           parsed <- parse.corpus(
@@ -88,13 +88,8 @@ function (input, output, shiny.session, db.service, log.service, stylo.params.se
           )
           
           progress$set(
-            value = 0.4,
-            detail = "Capturing Stylo console output"
-          )
-          
-          progress$set(
             value = 0.6,
-            detail = "Invoking Stylo"
+            detail = "invoking Stylo"
           )
           
           setwd('results')
@@ -211,6 +206,7 @@ function (input, output, shiny.session, db.service, log.service, stylo.params.se
         disable_download(shiny.session)
         # clear the image
         output$stylo.plot <- renderText({""})
+        output$stylo.msg <- renderText({""})
         dat() %...>% {
           enable_run_buttons(shiny.session)
           enable_download(shiny.session)
