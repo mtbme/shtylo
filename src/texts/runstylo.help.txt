@@ -1,1 +1,1 @@
-You can start using the stylo right away this way. For more experinenced users.
+Stylo is an analysis tool for performing various stylometry tasks. It has a wide variety of settings on what characteristics and how should be analyzed.
