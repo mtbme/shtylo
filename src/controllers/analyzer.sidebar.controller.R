@@ -5,6 +5,7 @@ function (input, output, session, db.service, log.service, saveSettings, loadSet
     handlerExpr = {
       if (db.service$is.connected()) {
         saveSettings(db.service, input)
+        output$analyzer.save.msg <- renderText("Settings saved.")
       } else {
         showModal(modalDialog(
           title = "Error",
@@ -21,6 +22,7 @@ function (input, output, session, db.service, log.service, saveSettings, loadSet
     handlerExpr = {
       if (db.service$is.connected()) {
         loadSettings(db.service, session, "analyzer")
+        output$analyzer.save.msg <- renderText("Settings loaded.")
       } else {
         showModal(modalDialog(
           title = "Error",
@@ -97,6 +99,7 @@ function (input, output, session, db.service, log.service, saveSettings, loadSet
     handlerExpr = {
       if (db.service$is.connected()) {
         saveSettings(db.service, input)
+        output$analyzer.save.msg <- renderText("Settings saved.")
         updateTextAreaInput(
           session,
           "analyzer.load.textbox",

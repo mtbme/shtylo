@@ -94,6 +94,7 @@ function (input, output, session, db.service, log.service, preanalyzer, updater,
     handlerExpr = {
       if (db.service$is.connected()) {
         saveSettings(db.service, input)
+        output$wizard.save.msg <- renderText("Settings saved.")
       } else {
         log.service$log(
           "Please connect to a database!",
@@ -108,6 +109,7 @@ function (input, output, session, db.service, log.service, preanalyzer, updater,
     handlerExpr = {
       if (db.service$is.connected()) {
         loadSettings(db.service, session, "wizard")
+        output$wizard.save.msg <- renderText("Settings loaded.")
       } else {
         log.service$log(
           "Please connect to a database!",
@@ -182,6 +184,7 @@ function (input, output, session, db.service, log.service, preanalyzer, updater,
     handlerExpr = {
       if (db.service$is.connected()) {
         saveSettings(db.service, input)
+        output$wizard.save.msg <- renderText("Settings saved.")
         updateTextAreaInput(
           session,
           "wizard.load.textbox",
