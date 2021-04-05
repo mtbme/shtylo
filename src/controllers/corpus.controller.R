@@ -52,6 +52,10 @@ function (input, output, session, log.service) {
       if (!dir.exists('corpus')) {
 	stop("Corpus directory does not exists in the downloaded file.")
       }
+      filelist <- list.files("./corpus")
+      for (f in filelist) {
+        if (!validUTF8(f)) stop(paste("Invalid file name found in the corpus:", f))
+      }
     })
     tryCatch({
         if (!corpus.exists(i1)) {
