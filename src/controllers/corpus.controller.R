@@ -26,16 +26,12 @@ function (input, output, session, log.service) {
     disable_run_buttons(session)
     disable_download(session)
     progress <- AsyncProgress$new(
-      message = "Downloading corpus",
+      message = "Initializing corpus:",
       min = 0,
       max = 1,
-      detail = "Setting up corpus",
+      detail = "downloading ZIP file",
       style = "notification",
       session = session
-    )
-    progress$set(
-      value = 0.2,
-      detail = "Downloading .zip file"
     )
     if (!corpus.exists(i1)) proc_download <- future({
       setwd(create.corpus.path(i1))
@@ -44,9 +40,9 @@ function (input, output, session, log.service) {
 	stop("File download failed. Check the URL.")
       }
       progress$set(
-        value = 0.8,
-        detail = "Extracting .zip file",
-        message = "Extracting .zip file"
+        value = 0.7,
+        detail = "extracting .zip file",
+        message = "extracting .zip file"
       )
       unzip(paste(i1, ".zip", sep = ""))
       if (!dir.exists('corpus')) {

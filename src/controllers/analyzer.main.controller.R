@@ -59,10 +59,10 @@ function (input, output, session, db.service, log.service, stylo.analyzer.params
       # sink(analyzer.output.connection, type = "message")
       
       progress <- AsyncProgress$new(
-        message = "Analyzer is running",
+        message = "Analyzer is running:",
         min = 0,
         max = 1,
-        detail = "Loading corpus",
+        detail = "loading corpus",
         style = "notification",
         session = session
       )
@@ -278,7 +278,7 @@ function (input, output, session, db.service, log.service, stylo.analyzer.params
             )
             progress$set(
               value = 0.1 + (index/(i25+1))*0.4,
-              detail = paste("Pre-Cycle step #", index)
+              detail = paste("pre-Cycle step #", index)
             )
             if(checkbounds(candidates[[index]])){
               sc <- 100000

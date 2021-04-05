@@ -4,10 +4,10 @@ function(input, output, session, db.service, saveSettings, wizard.output.connect
   sink(wizard.output.connection)
   #sink(wizard.output.connection, type = "message")
   progress <- AsyncProgress$new(
-    message = "Wizard is running",
+    message = "Wizard is running:",
     min = 0,
     max = 1,
-    detail = "Loading corpus",
+    detail = "loading corpus",
     style = "notification",
     session = session
   )
@@ -16,7 +16,7 @@ function(input, output, session, db.service, saveSettings, wizard.output.connect
     # summary(corpus) has problems with non-utf8 file names
     progress$set(
       value = 0.3,
-      detail = "Detecting language"
+      detail = "detecting language"
     )
     #languages = db.service$detect.languages()
     #write(languages, stdout())
