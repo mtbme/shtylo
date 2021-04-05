@@ -71,6 +71,7 @@ function (input, output, session, log.service) {
 	  # TODO load settings?
 	}
         enable_run_buttons(session)
+	print.corpus.info()
         log.service$log(
           "Wizard, Stylo and Analyzer are enabled.",
           where = "corpus"
@@ -145,6 +146,19 @@ function (input, output, session, log.service) {
     stylo.wizard.saveSettings(corpus.service, input)
     stylo.saveSettings(corpus.service, input)
     stylo.analyzer.saveSettings(corpus.service, input)
+  }
+
+  get.file.size <- function (filename) {
+    file.info(filename)$size
+  }
+
+  print.corpus.info <- function () {
+    filelist <- list.files("./corpus/", full.names = TRUE)
+    size = round(Reduce("+", lapply(filelist, get.file.size))/1024/1024)
+    log.service$log(
+      paste("The corpus has ~", size, "MB of text in ", length(filelist), " files.", sep=""),
+      where = "corpus"
+    )
   }
 
   export <- list(load.collection, is.connected, load.save, upload.save, detect.languages)
