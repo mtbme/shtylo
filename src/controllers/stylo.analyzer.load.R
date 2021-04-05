@@ -16,7 +16,7 @@ function(db.service, session, type){
   updateCheckboxInput(
     session,
     "analyzerUtf8Checkbox",
-    value = saveVector[3]
+    value = as.logical(saveVector[3])
   )
 
   updateSelectInput(
@@ -34,7 +34,7 @@ function(db.service, session, type){
   updateCheckboxInput(
     session,
     "analyzerCaseCheckbox",
-    value = saveVector[6]
+    value = as.logical(saveVector[6])
   )
 
   updateNumericInput(
@@ -88,7 +88,7 @@ function(db.service, session, type){
   updateCheckboxInput(
     session,
     "analyzerCullingPronounCheckbox",
-    value = saveVector[15]
+    value = as.logical(saveVector[15])
   )
 
   updateSelectInput(
@@ -184,12 +184,12 @@ function(db.service, session, type){
   updateCheckboxInput(
     session,
     "analyzerOutputPlotDefaultCheckbox",
-    value = saveVector[31]
+    value = as.logical(saveVector[31])
   )
 
   updateCheckboxInput(
     session,
     "analyzerOutputPlotTitlesCheckbox",
-    value = saveVector[32]
+    value = as.logical(saveVector[32])
   )
 }

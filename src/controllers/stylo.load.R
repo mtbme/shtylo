@@ -16,7 +16,7 @@ function(db.service, session, type){
   updateCheckboxInput(
     session,
     "utf8.checkbox",
-    value = saveVector[3]
+    value = as.logical(saveVector[3])
   )
 
   updateSelectInput(
@@ -34,7 +34,7 @@ function(db.service, session, type){
   updateCheckboxInput(
     session,
     "case.checkbox",
-    value = saveVector[6]
+    value = as.logical(saveVector[6])
   )
 
   updateNumericInput(
@@ -88,7 +88,7 @@ function(db.service, session, type){
   updateCheckboxInput(
     session,
     "culling.pronoun.checkbox",
-    value = saveVector[15]
+    value = as.logical(saveVector[15])
   )
 
   updateSelectInput(
@@ -130,7 +130,7 @@ function(db.service, session, type){
   updateCheckboxInput(
     session,
     "clustering.horizontal.checkbox",
-    value = saveVector[22]
+    value = as.logical(saveVector[22])
   )
 
   updateSelectInput(
@@ -184,12 +184,12 @@ function(db.service, session, type){
   updateCheckboxInput(
     session,
     "output.plot.default.checkbox",
-    value = saveVector[31]
+    value = as.logical(saveVector[31])
   )
 
   updateCheckboxInput(
     session,
     "output.plot.titles.checkbox",
-    value = saveVector[32]
+    value = as.logical(saveVector[32])
   )
 }
